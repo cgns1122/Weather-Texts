@@ -1,8 +1,8 @@
 require 'nokogiri'
 require 'open-uri'
 require 'twilio-ruby'
-require './scraping.rb'
-require './texting.rb'
+require './lib/scraping.rb'
+require './lib/messaging.rb'
 
 task :method do
 	scraped = Scrape.new("http://www.weather.com/weather/today/11101:4:US")
