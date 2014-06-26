@@ -34,5 +34,4 @@ class Text
 		  :body => @body
 		)
 	end
-
 end
