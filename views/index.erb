@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/index.css">
+        <title>
+            Weather
+        </title>
+    </head>
+
+    <body>
+
+        <h1> The weather for today, <%= @htmlscrape.month %>/<%= @htmlscrape.date %>/<%= @htmlscrape.year %>: </h1>
+
+        <h3> Today's Weather: </h3>
+        <p>
+            High: <%= @htmlscrape.today_high %>
+            Conditions: <%= @htmlscrape.today_cond %>
+            Chance of <%= @htmlscrape.chance_of_what_day %>: <%= @htmlscrape.today_rain %>
+            Humidity: <%= @htmlscrape.today_hum %>
+        </p>
+
+
+        <h3> Tonight's Weather: </h3>
+
+    </body>
+</html>

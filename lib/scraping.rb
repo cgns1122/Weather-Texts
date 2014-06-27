@@ -2,16 +2,29 @@ require 'nokogiri'
 require 'open-uri'
 
 class Scrape
+    attr_accessor :time_array, :date_array, :month, :date, :year, :temp_array, :today_cond, :tonight_cond, :chance_of_what_day, :chance_of_what_night, :humidity_array, :rain_array, :today_high, :tonight_low, :today_rain, :tonight_rain, :tonight_hum, :today_hum
+
     def initialize(url)
         @html = open(url)
         @weather = Nokogiri::HTML(@html)
 
+        @time_array = Time.new.to_s.split
+        @date_array = @time_array[0].split("-")
+        @month = @date_array[1]
+        @date = @date_array[2]
+        @year = @date_array[0]
 
         @temp_array = @weather.css("div.wx-temperature").children[2, 4].text.gsub("°", "° ").strip.split
         @today_cond = @weather.css("div.wx-data-part div.wx-phrase").children[1].text
         @tonight_cond = @weather.css("div.wx-data-part div.wx-phrase").children[2].text
         @chance_of_what_day = @weather.css("div.wx-data-part h6.wx-label span.wx-firstletter").children[0].text
         @chance_of_what_night = @weather.css("div.wx-data-part h6.wx-label span.wx-firstletter").children[1].text
+        @today_high = @temp_array[0]
+        @tonight_low = @temp_array[1]
+        @today_rain = @rain_array[0]
+        @tonight_rain = @rain_array[1]
+        @today_hum = @humidity_array[1]
+        @tonight_hum = @humidity_array[2]
     end
 
     def message
