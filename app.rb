@@ -5,6 +5,6 @@ require './lib/scraping'
 require 'pry'
 
 get '/' do
-  @htmlscrape = Scrape.new('http://www.weather.com/weather/today/11101:4:US')
+  @htmlscrape = Scrape.new('ENV[WEATHER-LINK]')
   erb :index
 end 

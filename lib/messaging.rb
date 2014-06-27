@@ -2,8 +2,8 @@ require 'twilio-ruby'
 
 class Text
 
-	account_sid = 'ACe330ba04d082392df4cb3511dcb72cec'
-	auth_token = '2008ea097713e401a16c54029058da82'
+	account_sid = 'ENV[TWILIO-ACCOUNT]'
+	auth_token = 'ENV[TWILIO-AUTH]'
 
 	@client = Twilio::REST::Client.new account_sid, auth_token
 
@@ -16,20 +16,20 @@ class Text
 	end
 
 	def text_chiara
-		@client = Twilio::REST::Client.new 'ACe330ba04d082392df4cb3511dcb72cec', '2008ea097713e401a16c54029058da82'
+		@client = Twilio::REST::Client.new 'ENV[TWILIO-ACCOUNT]', 'ENV[TWILIO-AUTH]'
 
 		@client.account.messages.create(
-		  :from => '+18152642023',
-		  :to => '+19174341595',
+		  :from => 'ENV[TWILIO-NUMBER]',
+		  :to => 'ENV[PERMANENT-NUMBER]',
 		  :body => @body
 		)
 	end
 
 	def texting(recipient = @recipient)
-		@client = Twilio::REST::Client.new 'ACe330ba04d082392df4cb3511dcb72cec', '2008ea097713e401a16c54029058da82'
+		@client = Twilio::REST::Client.new 'ENV[TWILIO-ACCOUNT]', 'ENV[TWILIO-AUTH]'
 
 		@client.account.messages.create(
-		  :from => '+18152642023',
+		  :from => 'ENV[TWILIO-NUMBER]',
 		  :to => recipient,
 		  :body => @body
 		)

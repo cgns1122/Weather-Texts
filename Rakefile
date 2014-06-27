@@ -5,7 +5,7 @@ require './lib/scraping.rb'
 require './lib/messaging.rb'
 
 task :method do
-	scraped = Scrape.new("http://www.weather.com/weather/today/11101:4:US")
+	scraped = Scrape.new("ENV[WEATHER-LINK]")
 	message = scraped.message
 	text = Text.new
 	text.assign_body= ("#{message}")
