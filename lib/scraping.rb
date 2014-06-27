@@ -8,6 +8,9 @@ class Scrape
         @html = open(url)
         @weather = Nokogiri::HTML(@html)
 
+        find_humidity
+        find_rainchance
+
         @time_array = Time.new.to_s.split
         @date_array = @time_array[0].split("-")
         @month = @date_array[1]

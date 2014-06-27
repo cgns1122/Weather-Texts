@@ -10,16 +10,32 @@
 
         <h1> The weather for today, <%= @htmlscrape.month %>/<%= @htmlscrape.date %>/<%= @htmlscrape.year %>: </h1>
 
-        <h3> Today's Weather: </h3>
-        <p>
-            High: <%= @htmlscrape.today_high %>
-            Conditions: <%= @htmlscrape.today_cond %>
-            Chance of <%= @htmlscrape.chance_of_what_day %>: <%= @htmlscrape.today_rain %>
-            Humidity: <%= @htmlscrape.today_hum %>
-        </p>
+        <div class="today">
+            <h3> Today's Weather: </h3>
+            <p>
+                High: <%= @htmlscrape.today_high %>
+                <br>
+                Conditions: <%= @htmlscrape.today_cond %>
+                <br>
+                Chance of <%= @htmlscrape.chance_of_what_day %>: <%= @htmlscrape.today_rain %>
+                <br>
+                Humidity: <%= @htmlscrape.today_hum %>
+            </p>
+        </div>
 
-
-        <h3> Tonight's Weather: </h3>
-
+        <br><br><br>
+        <div class="today">
+            <h3> Tonight's Weather: </h3>
+            <p>
+                High: <%= @htmlscrape.tonight_low %>
+                <br>
+                Conditions: <%= @htmlscrape.tonight_cond %>
+                <br>
+                Chance of <%= @htmlscrape.chance_of_what_night %>: <%= @htmlscrape.tonight_rain %>
+                <br>
+                Humidity: <%= @htmlscrape.tonight_hum %>
+            </p>
+        </div>
+        
     </body>
 </html>

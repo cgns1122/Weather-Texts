@@ -1,0 +1,22 @@
+body {
+	background-color: skyblue;
+	color: #0B5573;
+}
+
+h1 {
+	font-size: 200%;
+	text-align: center;
+}
+
+p {
+	font-size: 1.1em;
+}
+
+div.today {
+	border: solid 10px;
+	border-color: gray;
+	margin-right: 25%;
+	margin-left: 25%;
+	padding-left: 18%;
+	color: #04435C;
+}
